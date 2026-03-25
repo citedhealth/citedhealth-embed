@@ -733,14 +733,26 @@ function createShadow(el, config) {
   shadow.appendChild(style);
   return shadow;
 }
+function resolveTheme(el) {
+  const raw = el.dataset.theme || "light";
+  if (raw === "auto") {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  return raw;
+}
 function createWidgetRoot(shadow, el, extraClass) {
-  const theme = el.dataset.theme || "light";
+  const theme = resolveTheme(el);
   const size = el.dataset.size || "default";
   const div = document.createElement("div");
   div.className = ["cited-widget", extraClass].filter(Boolean).join(" ");
   div.setAttribute("data-theme", theme);
   div.setAttribute("data-size", size);
   shadow.appendChild(div);
+  if (el.dataset.theme === "auto") {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      div.setAttribute("data-theme", e.matches ? "dark" : "light");
+    });
+  }
   return div;
 }
 function renderLoading(container) {

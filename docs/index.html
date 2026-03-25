@@ -218,8 +218,8 @@
   <section id="widgets" class="py-16 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6" x-data="{ activeWidget: 'evidence' }">
       <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3">7 Widget Types &times; 3 Styles</h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">Select a widget type to see all 3 design styles. Every widget includes Shadow DOM, medical disclaimer, and backlink.</p>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3">7 Widget Types &times; 3 Styles &times; 2 Themes</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">Select a widget type to see all 3 design styles in Light and Dark. Every widget includes Shadow DOM, medical disclaimer, and backlink.</p>
       </div>
 
       <!-- Widget type selector -->
@@ -229,308 +229,635 @@
         </template>
       </div>
 
-      <!-- 3-column style display -->
+      <!-- 3-column style display (Light + Dark rows per column) -->
       <div class="grid sm:grid-cols-3 gap-4">
-        <!-- Column headers -->
-        <div class="text-center"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block mb-3" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
-        <div class="text-center"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block mb-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">Clinical</span></div>
-        <div class="text-center"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block mb-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Research</span></div>
 
         <!-- ======= EVIDENCE ======= -->
+        <!-- Modern column -->
         <template x-if="activeWidget==='evidence'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-bold text-white" style="background:#10b981">A</span><span class="font-semibold text-xs text-gray-900 dark:text-white">Biotin for Hair Loss</span></div>
-              <p class="text-[10px] text-gray-400 mb-2">Strong Evidence &middot; 23 studies</p>
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Biotin supplementation may support hair growth in people with biotin deficiency.</p>
-              <div class="flex gap-1.5 mb-2"><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50 dark:bg-gray-800"><div class="font-bold text-xs">23</div><div class="text-[9px] text-gray-400">Studies</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50 dark:bg-gray-800"><div class="font-bold text-xs">8</div><div class="text-[9px] text-gray-400">RCTs</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50 dark:bg-gray-800"><div class="font-bold text-xs">4</div><div class="text-[9px] text-gray-400">Meta</div></div></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
-            </div>
-          </div>
-        </template>
-        <template x-if="activeWidget==='evidence'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white" style="background:#10b981">A</span><div><div class="font-semibold text-xs text-gray-900 dark:text-white">Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">Strong Evidence</div></div></div>
-            <div class="px-3 py-2">
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Biotin supplementation may support hair growth in people with biotin deficiency.</p>
-              <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold">23</span> <span class="text-gray-400">Studies</span></span><span><span class="font-semibold">8</span> <span class="text-gray-400">RCTs</span></span><span><span class="font-semibold">4</span> <span class="text-gray-400">Meta</span></span></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
-            </div>
-          </div>
-        </template>
-        <template x-if="activeWidget==='evidence'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Evidence Report</span><span class="text-[10px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">Grade A</span></div>
-            <div class="px-3 py-2">
-              <div class="text-xs font-semibold mb-1 text-gray-900 dark:text-white">Biotin &rarr; Hair Loss</div>
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Biotin supplementation may support hair growth in people with biotin deficiency.</p>
-              <div class="space-y-1 text-[10px] mb-2">
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">Studies</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:85%;background:#10b981"></div></div><span class="font-bold w-4 text-right">23</span></div>
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">RCTs</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:60%;background:#3b82f6"></div></div><span class="font-bold w-4 text-right">8</span></div>
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">Meta</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:30%;background:#7c3aed"></div></div><span class="font-bold w-4 text-right">4</span></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <!-- Light -->
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-bold text-white" style="background:#10b981">A</span><span class="font-semibold text-xs text-gray-900">Biotin for Hair Loss</span></div>
+                  <p class="text-[10px] text-gray-400 mb-2">Strong Evidence &middot; 23 studies</p>
+                  <div class="flex gap-1.5 mb-2"><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50"><div class="font-bold text-xs">23</div><div class="text-[9px] text-gray-400">Studies</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50"><div class="font-bold text-xs">8</div><div class="text-[9px] text-gray-400">RCTs</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-gray-50"><div class="font-bold text-xs">4</div><div class="text-[9px] text-gray-400">Meta</div></div></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+            </div>
+            <!-- Dark -->
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="flex items-center gap-2 mb-1"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-bold text-white" style="background:#10b981">A</span><span class="font-semibold text-xs text-gray-100">Biotin for Hair Loss</span></div>
+                  <p class="text-[10px] text-gray-400 mb-2">Strong Evidence &middot; 23 studies</p>
+                  <div class="flex gap-1.5 mb-2"><div class="flex-1 rounded-md p-1.5 text-center bg-[#111827]"><div class="font-bold text-xs text-gray-100">23</div><div class="text-[9px] text-gray-400">Studies</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-[#111827]"><div class="font-bold text-xs text-gray-100">8</div><div class="text-[9px] text-gray-400">RCTs</div></div><div class="flex-1 rounded-md p-1.5 text-center bg-[#111827]"><div class="font-bold text-xs text-gray-100">4</div><div class="text-[9px] text-gray-400">Meta</div></div></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <!-- Clinical column -->
+        <template x-if="activeWidget==='evidence'">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <!-- Light -->
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 bg-gray-50"><span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white" style="background:#10b981">A</span><div><div class="font-semibold text-xs text-gray-900">Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">Strong Evidence</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold">23</span> <span class="text-gray-400">Studies</span></span><span><span class="font-semibold">8</span> <span class="text-gray-400">RCTs</span></span><span><span class="font-semibold">4</span> <span class="text-gray-400">Meta</span></span></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Dark -->
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-700 bg-[#111827]"><span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white" style="background:#10b981">A</span><div><div class="font-semibold text-xs text-gray-100">Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">Strong Evidence</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold text-gray-100">23</span> <span class="text-gray-400">Studies</span></span><span><span class="font-semibold text-gray-100">8</span> <span class="text-gray-400">RCTs</span></span><span><span class="font-semibold text-gray-100">4</span> <span class="text-gray-400">Meta</span></span></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <!-- Research column -->
+        <template x-if="activeWidget==='evidence'">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <!-- Light -->
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Evidence Report</span><span class="text-[10px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">Grade A</span></div>
+                <div class="px-3 py-2">
+                  <div class="space-y-1 text-[10px] mb-2">
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">Studies</span><div class="flex-1 rounded-full h-1 bg-gray-200"><div class="h-full rounded-full" style="width:85%;background:#10b981"></div></div><span class="font-bold w-4 text-right">23</span></div>
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">RCTs</span><div class="flex-1 rounded-full h-1 bg-gray-200"><div class="h-full rounded-full" style="width:60%;background:#3b82f6"></div></div><span class="font-bold w-4 text-right">8</span></div>
+                  </div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Dark -->
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827] flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Evidence Report</span><span class="text-[10px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">Grade A</span></div>
+                <div class="px-3 py-2">
+                  <div class="space-y-1 text-[10px] mb-2">
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">Studies</span><div class="flex-1 rounded-full h-1 bg-gray-700"><div class="h-full rounded-full" style="width:85%;background:#10b981"></div></div><span class="font-bold w-4 text-right text-gray-100">23</span></div>
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-12">RCTs</span><div class="flex-1 rounded-full h-1 bg-gray-700"><div class="h-full rounded-full" style="width:60%;background:#3b82f6"></div></div><span class="font-bold w-4 text-right text-gray-100">8</span></div>
+                  </div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
         <!-- ======= INGREDIENT ======= -->
         <template x-if="activeWidget==='ingredient'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <div class="mb-2"><span class="font-semibold text-xs text-gray-900 dark:text-white">Biotin</span> <span class="text-[9px] bg-gray-100 dark:bg-gray-800 text-gray-500 px-1.5 py-0.5 rounded-full ml-1">Vitamin</span></div>
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Also known as vitamin B7. Essential for keratin production.</p>
-              <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-1">Related Conditions</p><div class="space-y-0.5"><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#10b981">A</span><span class="text-[10px] text-gray-700 dark:text-gray-300">Hair Loss</span></div><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#3b82f6">B</span><span class="text-[10px] text-gray-700 dark:text-gray-300">Brittle Nails</span></div></div></div>
-              <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Dosage</p><p class="text-[10px] text-gray-600 dark:text-gray-400">2,500&ndash;5,000 mcg daily</p></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="mb-2"><span class="font-semibold text-xs text-gray-900">Biotin</span> <span class="text-[9px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full ml-1">Vitamin</span></div>
+                  <p class="text-[10px] text-gray-500 mb-2">Also known as vitamin B7. Essential for keratin production.</p>
+                  <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Dosage</p><p class="text-[10px] text-gray-600">2,500&ndash;5,000 mcg daily</p></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="mb-2"><span class="font-semibold text-xs text-gray-100">Biotin</span> <span class="text-[9px] bg-[#111827] text-gray-400 px-1.5 py-0.5 rounded-full ml-1">Vitamin</span></div>
+                  <p class="text-[10px] text-gray-400 mb-2">Also known as vitamin B7. Essential for keratin production.</p>
+                  <div class="mb-2"><p class="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-0.5">Dosage</p><p class="text-[10px] text-gray-300">2,500&ndash;5,000 mcg daily</p></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='ingredient'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><div><div class="font-semibold text-xs text-gray-900 dark:text-white">Biotin <span class="text-[9px] font-normal text-gray-400">(Vitamin B7)</span></div><div class="text-[10px] text-gray-400">Vitamin &middot; Water-soluble</div></div></div>
-            <div class="px-3 py-2">
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Essential for keratin production. Supports hair, skin, nails.</p>
-              <div class="text-[10px] mb-2"><span class="font-semibold">Conditions:</span> <span class="text-gray-500">Hair Loss (A), Brittle Nails (B)</span></div>
-              <div class="text-[10px] mb-2"><span class="font-semibold">Dosage:</span> <span class="text-gray-500">2,500&ndash;5,000 mcg daily</span></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 bg-gray-50"><div><div class="font-semibold text-xs text-gray-900">Biotin <span class="text-[9px] font-normal text-gray-400">(Vitamin B7)</span></div><div class="text-[10px] text-gray-400">Vitamin &middot; Water-soluble</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] mb-2"><span class="font-semibold">Dosage:</span> <span class="text-gray-500">2,500&ndash;5,000 mcg daily</span></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-700 bg-[#111827]"><div><div class="font-semibold text-xs text-gray-100">Biotin <span class="text-[9px] font-normal text-gray-400">(Vitamin B7)</span></div><div class="text-[10px] text-gray-400">Vitamin &middot; Water-soluble</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] mb-2"><span class="font-semibold text-gray-100">Dosage:</span> <span class="text-gray-400">2,500&ndash;5,000 mcg daily</span></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='ingredient'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Ingredient Profile</span></div>
-            <div class="px-3 py-2 text-[10px]">
-              <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Name</td><td class="font-semibold text-gray-900 dark:text-white">Biotin (B7)</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Type</td><td>Water-soluble vitamin</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Dosage</td><td>2,500&ndash;5,000 mcg/d</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Evidence</td><td>Hair Loss (A), Nails (B)</td></tr></table>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Ingredient Profile</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Name</td><td class="font-semibold text-gray-900">Biotin (B7)</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Dosage</td><td>2,500&ndash;5,000 mcg/d</td></tr></table>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827]"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Ingredient Profile</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Name</td><td class="font-semibold text-gray-100">Biotin (B7)</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Dosage</td><td class="text-gray-300">2,500&ndash;5,000 mcg/d</td></tr></table>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
         <!-- ======= CONDITION ======= -->
         <template x-if="activeWidget==='condition'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <div class="mb-2"><span class="font-semibold text-xs text-gray-900 dark:text-white">Hair Loss</span> <span class="text-[9px] bg-gray-100 dark:bg-gray-800 text-gray-500 px-1.5 py-0.5 rounded-full ml-1">Dermatological</span></div>
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Excessive hair shedding or thinning affecting the scalp.</p>
-              <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-1">Supplements (3)</p><div class="space-y-0.5"><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#10b981">A</span><span class="text-[10px] text-gray-700 dark:text-gray-300">Biotin</span></div><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#3b82f6">B</span><span class="text-[10px] text-gray-700 dark:text-gray-300">Iron</span></div><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#f59e0b">C</span><span class="text-[10px] text-gray-700 dark:text-gray-300">Saw Palmetto</span></div></div></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
-            </div>
-          </div>
-        </template>
-        <template x-if="activeWidget==='condition'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><div><div class="font-semibold text-xs text-gray-900 dark:text-white">Hair Loss</div><div class="text-[10px] text-gray-400">Dermatological &middot; 3 supplements studied</div></div></div>
-            <div class="px-3 py-2">
-              <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-2">Excessive hair shedding or thinning affecting the scalp.</p>
-              <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold">Biotin</span> <span class="text-green-600">A</span></span><span><span class="font-semibold">Iron</span> <span class="text-blue-600">B</span></span><span><span class="font-semibold">Saw Palmetto</span> <span class="text-amber-600">C</span></span></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
-            </div>
-          </div>
-        </template>
-        <template x-if="activeWidget==='condition'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Condition Report</span></div>
-            <div class="px-3 py-2 text-[10px]">
-              <div class="font-semibold text-xs mb-1 text-gray-900 dark:text-white">Hair Loss</div>
-              <div class="space-y-1 mb-2">
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Biotin</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:90%;background:#10b981"></div></div><span class="font-bold w-3 text-right">A</span></div>
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Iron</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:70%;background:#3b82f6"></div></div><span class="font-bold w-3 text-right">B</span></div>
-                <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Saw Palm.</span><div class="flex-1 rounded-full h-1 bg-gray-200 dark:bg-gray-700"><div class="h-full rounded-full" style="width:45%;background:#f59e0b"></div></div><span class="font-bold w-3 text-right">C</span></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="mb-2"><span class="font-semibold text-xs text-gray-900">Hair Loss</span> <span class="text-[9px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded-full ml-1">Dermatological</span></div>
+                  <div class="mb-2"><div class="space-y-0.5"><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#10b981">A</span><span class="text-[10px] text-gray-700">Biotin</span></div><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#3b82f6">B</span><span class="text-[10px] text-gray-700">Iron</span></div></div></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="mb-2"><span class="font-semibold text-xs text-gray-100">Hair Loss</span> <span class="text-[9px] bg-[#111827] text-gray-400 px-1.5 py-0.5 rounded-full ml-1">Dermatological</span></div>
+                  <div class="mb-2"><div class="space-y-0.5"><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#10b981">A</span><span class="text-[10px] text-gray-300">Biotin</span></div><div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full text-[8px] font-bold text-white inline-flex items-center justify-center" style="background:#3b82f6">B</span><span class="text-[10px] text-gray-300">Iron</span></div></div></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template x-if="activeWidget==='condition'">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 bg-gray-50"><div><div class="font-semibold text-xs text-gray-900">Hair Loss</div><div class="text-[10px] text-gray-400">Dermatological &middot; 3 supplements</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold">Biotin</span> <span class="text-green-600">A</span></span><span><span class="font-semibold">Iron</span> <span class="text-blue-600">B</span></span></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-700 bg-[#111827]"><div><div class="font-semibold text-xs text-gray-100">Hair Loss</div><div class="text-[10px] text-gray-400">Dermatological &middot; 3 supplements</div></div></div>
+                <div class="px-3 py-2">
+                  <div class="flex gap-4 text-[10px] mb-2"><span><span class="font-semibold text-gray-100">Biotin</span> <span class="text-green-400">A</span></span><span><span class="font-semibold text-gray-100">Iron</span> <span class="text-blue-400">B</span></span></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template x-if="activeWidget==='condition'">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Condition Report</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <div class="space-y-1 mb-2">
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Biotin</span><div class="flex-1 rounded-full h-1 bg-gray-200"><div class="h-full rounded-full" style="width:90%;background:#10b981"></div></div><span class="font-bold w-3 text-right">A</span></div>
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Iron</span><div class="flex-1 rounded-full h-1 bg-gray-200"><div class="h-full rounded-full" style="width:70%;background:#3b82f6"></div></div><span class="font-bold w-3 text-right">B</span></div>
+                  </div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827]"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Condition Report</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <div class="space-y-1 mb-2">
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Biotin</span><div class="flex-1 rounded-full h-1 bg-gray-700"><div class="h-full rounded-full" style="width:90%;background:#10b981"></div></div><span class="font-bold w-3 text-right text-gray-100">A</span></div>
+                    <div class="flex items-center gap-1.5"><span class="text-gray-400 w-16">Iron</span><div class="flex-1 rounded-full h-1 bg-gray-700"><div class="h-full rounded-full" style="width:70%;background:#3b82f6"></div></div><span class="font-bold w-3 text-right text-gray-100">B</span></div>
+                  </div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
         <!-- ======= PAPER ======= -->
         <template x-if="activeWidget==='paper'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <p class="font-semibold text-xs text-gray-900 dark:text-white mb-1">A Review of the Use of Biotin for Hair Loss</p>
-              <span class="inline-block text-[9px] px-1.5 py-0.5 rounded-full font-semibold text-white mb-2" style="background:#7c3aed">Systematic Review</span>
-              <div class="text-[10px] text-gray-400 mb-1">Patel DP, Swink SM, Castelo-Soccio L</div>
-              <div class="text-[10px] text-gray-400 italic mb-2">Skin Appendage Disorders, 2017</div>
-              <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <p class="font-semibold text-xs text-gray-900 mb-1">A Review of Biotin for Hair Loss</p>
+                  <span class="inline-block text-[9px] px-1.5 py-0.5 rounded-full font-semibold text-white mb-2" style="background:#7c3aed">Systematic Review</span>
+                  <div class="text-[10px] text-gray-400 mb-1">Patel DP et al. &middot; 2017</div>
+                  <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <p class="font-semibold text-xs text-gray-100 mb-1">A Review of Biotin for Hair Loss</p>
+                  <span class="inline-block text-[9px] px-1.5 py-0.5 rounded-full font-semibold text-white mb-2" style="background:#7c3aed">Systematic Review</span>
+                  <div class="text-[10px] text-gray-400 mb-1">Patel DP et al. &middot; 2017</div>
+                  <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='paper'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><div class="font-semibold text-xs text-gray-900 dark:text-white">A Review of the Use of Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">Systematic Review &middot; 2017</div></div>
-            <div class="px-3 py-2">
-              <div class="text-[10px] text-gray-500 dark:text-gray-400 mb-1">Patel DP, Swink SM, Castelo-Soccio L</div>
-              <div class="text-[10px] text-gray-400 italic mb-2">Skin Appendage Disorders</div>
-              <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="px-3 py-2 border-b border-gray-100 bg-gray-50"><div class="font-semibold text-xs text-gray-900">A Review of Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">SR &middot; 2017</div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] text-gray-500 mb-2">Patel DP, Swink SM, Castelo-Soccio L</div>
+                  <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="px-3 py-2 border-b border-gray-700 bg-[#111827]"><div class="font-semibold text-xs text-gray-100">A Review of Biotin for Hair Loss</div><div class="text-[10px] text-gray-400">SR &middot; 2017</div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] text-gray-400 mb-2">Patel DP, Swink SM, Castelo-Soccio L</div>
+                  <a href="#" class="text-[10px] hover:underline" style="color:#2563EB">doi:10.1159/000462981</a>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='paper'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Paper</span><span class="ml-2 text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#7c3aed">SR</span></div>
-            <div class="px-3 py-2 text-[10px]">
-              <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5 align-top">Title</td><td class="font-semibold text-gray-900 dark:text-white">A Review of the Use of Biotin for Hair Loss</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Authors</td><td>Patel DP et al.</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Journal</td><td>Skin Appendage Disord.</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">DOI</td><td><a href="#" class="hover:underline" style="color:#2563EB">10.1159/000462981</a></td></tr></table>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Paper</span><span class="ml-2 text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#7c3aed">SR</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Authors</td><td>Patel DP et al.</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Year</td><td>2017</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">DOI</td><td><a href="#" class="hover:underline" style="color:#2563EB">10.1159/000462981</a></td></tr></table>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827]"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Paper</span><span class="ml-2 text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#7c3aed">SR</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Authors</td><td class="text-gray-300">Patel DP et al.</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Year</td><td class="text-gray-300">2017</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">DOI</td><td><a href="#" class="hover:underline" style="color:#2563EB">10.1159/000462981</a></td></tr></table>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
-        <!-- ======= FIGURE (SVG chart) ======= -->
+        <!-- ======= FIGURE ======= -->
         <template x-if="activeWidget==='figure'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <div class="relative mb-2 rounded-lg overflow-hidden">
-                <span class="absolute top-1 left-1 text-[9px] px-1.5 py-0.5 rounded font-bold text-white z-10" style="background:#2563EB">Fig. 2</span>
-                <svg viewBox="0 0 320 160" style="width:100%;height:auto;background:#f8fafc;border-radius:4px" class="dark:opacity-90">
-                  <text x="160" y="16" text-anchor="middle" font-size="9" fill="#64748b" font-weight="600">Hair Follicle Density (per cm&#178;)</text>
-                  <line x1="40" y1="28" x2="40" y2="130" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="130" x2="300" y2="130" stroke="#e2e8f0" stroke-width="1"/>
-                  <text x="36" y="42" text-anchor="end" font-size="7" fill="#94a3af">200</text><text x="36" y="66" text-anchor="end" font-size="7" fill="#94a3af">150</text><text x="36" y="90" text-anchor="end" font-size="7" fill="#94a3af">100</text><text x="36" y="114" text-anchor="end" font-size="7" fill="#94a3af">50</text>
-                  <!-- Baseline -->
-                  <rect x="55" y="60" width="18" height="70" rx="2" fill="#cbd5e1"/><rect x="78" y="58" width="18" height="72" rx="2" fill="#2563EB" opacity="0.8"/>
-                  <!-- 3 months -->
-                  <rect x="125" y="52" width="18" height="78" rx="2" fill="#cbd5e1"/><rect x="148" y="40" width="18" height="90" rx="2" fill="#2563EB" opacity="0.8"/>
-                  <!-- 6 months -->
-                  <rect x="195" y="50" width="18" height="80" rx="2" fill="#cbd5e1"/><rect x="218" y="30" width="18" height="100" rx="2" fill="#2563EB" opacity="0.8"/>
-                  <!-- X axis labels -->
-                  <text x="75" y="145" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="145" text-anchor="middle" font-size="8" fill="#64748b">3 months</text><text x="215" y="145" text-anchor="middle" font-size="8" fill="#64748b">6 months</text>
-                  <!-- Legend -->
-                  <rect x="248" y="36" width="8" height="8" rx="1" fill="#cbd5e1"/><text x="260" y="43" font-size="7" fill="#64748b">Control</text>
-                  <rect x="248" y="50" width="8" height="8" rx="1" fill="#2563EB" opacity="0.8"/><text x="260" y="57" font-size="7" fill="#64748b">Treatment</text>
-                </svg>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <span class="text-[9px] px-1.5 py-0.5 rounded font-bold text-white mb-2 inline-block" style="background:#2563EB">Fig. 2</span>
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#f8fafc;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#cbd5e1"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#2563EB" opacity="0.8"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#cbd5e1"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#2563EB" opacity="0.8"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#64748b">3 months</text>
+                  </svg>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <p class="text-[10px] text-gray-700 dark:text-gray-300 font-medium mb-1">Hair density changes after 90-day biotin supplementation.</p>
-              <div class="text-[9px] text-gray-400 mb-1">Patel DP et al. &middot; <span class="italic">Skin Appendage Disorders, 2017</span></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <span class="text-[9px] px-1.5 py-0.5 rounded font-bold text-white mb-2 inline-block" style="background:#2563EB">Fig. 2</span>
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#111827;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#374151" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#374151" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#374151"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#2563EB" opacity="0.8"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#374151"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#2563EB" opacity="0.8"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">3 months</text>
+                  </svg>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='figure'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><div class="font-semibold text-xs text-gray-900 dark:text-white">Figure 2</div><div class="text-[10px] text-gray-400">Patel DP et al., 2017</div></div>
-            <div class="px-3 py-2">
-              <svg viewBox="0 0 320 160" style="width:100%;height:auto;background:#f8fafc;border-radius:4px" class="dark:opacity-90">
-                <text x="160" y="16" text-anchor="middle" font-size="9" fill="#64748b" font-weight="600">Hair Follicle Density (per cm&#178;)</text>
-                <line x1="40" y1="28" x2="40" y2="130" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="130" x2="300" y2="130" stroke="#e2e8f0" stroke-width="1"/>
-                <text x="36" y="42" text-anchor="end" font-size="7" fill="#94a3af">200</text><text x="36" y="66" text-anchor="end" font-size="7" fill="#94a3af">150</text><text x="36" y="90" text-anchor="end" font-size="7" fill="#94a3af">100</text><text x="36" y="114" text-anchor="end" font-size="7" fill="#94a3af">50</text>
-                <rect x="55" y="60" width="18" height="70" rx="2" fill="#cbd5e1"/><rect x="78" y="58" width="18" height="72" rx="2" fill="#3b82f6" opacity="0.8"/>
-                <rect x="125" y="52" width="18" height="78" rx="2" fill="#cbd5e1"/><rect x="148" y="40" width="18" height="90" rx="2" fill="#3b82f6" opacity="0.8"/>
-                <rect x="195" y="50" width="18" height="80" rx="2" fill="#cbd5e1"/><rect x="218" y="30" width="18" height="100" rx="2" fill="#3b82f6" opacity="0.8"/>
-                <text x="75" y="145" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="145" text-anchor="middle" font-size="8" fill="#64748b">3 months</text><text x="215" y="145" text-anchor="middle" font-size="8" fill="#64748b">6 months</text>
-                <rect x="248" y="36" width="8" height="8" rx="1" fill="#cbd5e1"/><text x="260" y="43" font-size="7" fill="#64748b">Control</text><rect x="248" y="50" width="8" height="8" rx="1" fill="#3b82f6" opacity="0.8"/><text x="260" y="57" font-size="7" fill="#64748b">Treatment</text>
-              </svg>
-              <p class="text-[10px] text-gray-700 dark:text-gray-300 font-medium mt-2">Hair density changes after 90-day biotin supplementation.</p>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="px-3 py-2 border-b border-gray-100 bg-gray-50"><div class="font-semibold text-xs text-gray-900">Figure 2</div><div class="text-[10px] text-gray-400">Patel DP et al., 2017</div></div>
+                <div class="px-3 py-2">
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#f8fafc;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#cbd5e1"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#3b82f6" opacity="0.8"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#cbd5e1"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#3b82f6" opacity="0.8"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#64748b">3 months</text>
+                  </svg>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="px-3 py-2 border-b border-gray-700 bg-[#111827]"><div class="font-semibold text-xs text-gray-100">Figure 2</div><div class="text-[10px] text-gray-400">Patel DP et al., 2017</div></div>
+                <div class="px-3 py-2">
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#111827;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#374151" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#374151" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#374151"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#3b82f6" opacity="0.8"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#374151"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#3b82f6" opacity="0.8"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">3 months</text>
+                  </svg>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='figure'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Figure 2</span><span class="text-[9px] text-gray-400">doi:10.1159/000462981</span></div>
-            <div class="px-3 py-2">
-              <svg viewBox="0 0 320 160" style="width:100%;height:auto;background:#f8fafc;border-radius:4px" class="dark:opacity-90">
-                <text x="160" y="16" text-anchor="middle" font-size="9" fill="#64748b" font-weight="600">Hair Follicle Density (per cm&#178;)</text>
-                <line x1="40" y1="28" x2="40" y2="130" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="130" x2="300" y2="130" stroke="#e2e8f0" stroke-width="1"/>
-                <text x="36" y="42" text-anchor="end" font-size="7" fill="#94a3af">200</text><text x="36" y="66" text-anchor="end" font-size="7" fill="#94a3af">150</text><text x="36" y="90" text-anchor="end" font-size="7" fill="#94a3af">100</text><text x="36" y="114" text-anchor="end" font-size="7" fill="#94a3af">50</text>
-                <rect x="55" y="60" width="18" height="70" rx="2" fill="#94a3b8"/><rect x="78" y="58" width="18" height="72" rx="2" fill="#475569"/>
-                <rect x="125" y="52" width="18" height="78" rx="2" fill="#94a3b8"/><rect x="148" y="40" width="18" height="90" rx="2" fill="#475569"/>
-                <rect x="195" y="50" width="18" height="80" rx="2" fill="#94a3b8"/><rect x="218" y="30" width="18" height="100" rx="2" fill="#475569"/>
-                <text x="75" y="145" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="145" text-anchor="middle" font-size="8" fill="#64748b">3 months</text><text x="215" y="145" text-anchor="middle" font-size="8" fill="#64748b">6 months</text>
-                <rect x="248" y="36" width="8" height="8" rx="1" fill="#94a3b8"/><text x="260" y="43" font-size="7" fill="#64748b">Control</text><rect x="248" y="50" width="8" height="8" rx="1" fill="#475569"/><text x="260" y="57" font-size="7" fill="#64748b">Treatment</text>
-              </svg>
-              <div class="text-[10px] text-gray-500 mt-2">p &lt; 0.01, n=48, double-blind RCT</div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Figure 2</span><span class="text-[9px] text-gray-400">doi:10.1159/000462981</span></div>
+                <div class="px-3 py-2">
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#f8fafc;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#e2e8f0" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#94a3b8"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#475569"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#94a3b8"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#475569"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#64748b">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#64748b">3 months</text>
+                  </svg>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827] flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Figure 2</span><span class="text-[9px] text-gray-400">doi:10.1159/000462981</span></div>
+                <div class="px-3 py-2">
+                  <svg viewBox="0 0 320 120" style="width:100%;height:auto;background:#111827;border-radius:4px">
+                    <line x1="40" y1="20" x2="40" y2="100" stroke="#374151" stroke-width="1"/><line x1="40" y1="100" x2="300" y2="100" stroke="#374151" stroke-width="1"/>
+                    <rect x="55" y="50" width="18" height="50" rx="2" fill="#4b5563"/><rect x="78" y="45" width="18" height="55" rx="2" fill="#6b7280"/>
+                    <rect x="125" y="42" width="18" height="58" rx="2" fill="#4b5563"/><rect x="148" y="30" width="18" height="70" rx="2" fill="#6b7280"/>
+                    <text x="75" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">Baseline</text><text x="145" y="115" text-anchor="middle" font-size="8" fill="#9ca3af">3 months</text>
+                  </svg>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
-        <!-- ======= SEARCH (functional) ======= -->
+        <!-- ======= SEARCH ======= -->
         <template x-if="activeWidget==='search'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'ingredient',n:'Vitamin D',s:'vitamin-d'},{t:'condition',n:'Hair Loss',s:'hair-loss'},{t:'condition',n:'Androgenetic Alopecia',s:'androgenetic-alopecia'}] }">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3 relative">
-              <div class="flex items-center gap-2 border border-gray-200 dark:border-gray-700 rounded-lg px-2.5 py-2 bg-gray-50 dark:bg-gray-800">
-                <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="Search All Health Topics..." class="w-full bg-transparent text-xs text-gray-900 dark:text-gray-100 outline-none placeholder-gray-400">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'condition',n:'Hair Loss',s:'hair-loss'}] }">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3 relative">
+                  <div class="flex items-center gap-2 border border-gray-200 rounded-lg px-2.5 py-2 bg-gray-50">
+                    <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="Search All Health Topics..." class="w-full bg-transparent text-xs text-gray-900 outline-none placeholder-gray-400">
+                  </div>
+                  <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div x-show="open" x-cloak class="absolute left-3 right-3 mt-1 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 shadow-lg z-10 overflow-hidden">
-                <template x-for="r in items.filter(i => i.n.toLowerCase().includes(q.toLowerCase()))" :key="r.s">
-                  <a :href="'https://citedhealth.com/' + (r.t==='ingredient'?'ingredients/':'conditions/') + r.s + '/'" target="_blank" class="flex items-center justify-between px-3 py-2 text-[11px] hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
-                    <span x-text="r.n"></span>
-                    <span x-text="r.t" class="text-[9px] px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 capitalize"></span>
-                  </a>
-                </template>
-                <div x-show="items.filter(i => i.n.toLowerCase().includes(q.toLowerCase())).length === 0" class="px-3 py-2 text-[10px] text-gray-400">No results</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="flex items-center gap-2 border border-gray-700 rounded-lg px-2.5 py-2 bg-[#111827]">
+                    <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span class="text-xs text-gray-500">Search All Health Topics...</span>
+                  </div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='search'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'ingredient',n:'Vitamin D',s:'vitamin-d'},{t:'condition',n:'Hair Loss',s:'hair-loss'},{t:'condition',n:'Androgenetic Alopecia',s:'androgenetic-alopecia'}] }">
-            <div class="px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><span class="font-semibold text-xs text-gray-900 dark:text-white">Search Cited Health</span></div>
-            <div class="px-3 py-2 relative">
-              <div class="flex items-center gap-2 border border-gray-200 dark:border-gray-700 rounded px-2.5 py-2 bg-white dark:bg-gray-900">
-                <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="Search..." class="w-full bg-transparent text-xs text-gray-900 dark:text-gray-100 outline-none placeholder-gray-400">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'condition',n:'Hair Loss',s:'hair-loss'}] }">
+                <div class="px-3 py-2 border-b border-gray-100 bg-gray-50"><span class="font-semibold text-xs text-gray-900">Search Cited Health</span></div>
+                <div class="px-3 py-2 relative">
+                  <div class="flex items-center gap-2 border border-gray-200 rounded px-2.5 py-2 bg-white">
+                    <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="Search..." class="w-full bg-transparent text-xs text-gray-900 outline-none placeholder-gray-400">
+                  </div>
+                  <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div x-show="open" x-cloak class="absolute left-3 right-3 mt-1 border border-gray-200 dark:border-gray-700 rounded bg-white dark:bg-gray-900 shadow-lg z-10 overflow-hidden">
-                <template x-for="r in items.filter(i => i.n.toLowerCase().includes(q.toLowerCase()))" :key="r.s"><a :href="'https://citedhealth.com/' + (r.t==='ingredient'?'ingredients/':'conditions/') + r.s + '/'" target="_blank" class="flex items-center justify-between px-3 py-2 text-[11px] hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"><span x-text="r.n"></span><span x-text="r.t" class="text-[9px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-gray-500 capitalize"></span></a></template>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="px-3 py-2 border-b border-gray-700 bg-[#111827]"><span class="font-semibold text-xs text-gray-100">Search Cited Health</span></div>
+                <div class="px-3 py-2">
+                  <div class="flex items-center gap-2 border border-gray-700 rounded px-2.5 py-2 bg-[#1a1a1a]">
+                    <svg class="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span class="text-xs text-gray-500">Search...</span>
+                  </div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='search'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'ingredient',n:'Vitamin D',s:'vitamin-d'},{t:'condition',n:'Hair Loss',s:'hair-loss'},{t:'condition',n:'Androgenetic Alopecia',s:'androgenetic-alopecia'}] }">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Search</span></div>
-            <div class="px-3 py-2 relative">
-              <div class="flex items-center gap-2 border border-gray-300 dark:border-gray-600 rounded px-2.5 py-2">
-                <span class="text-gray-400 text-[10px]">&gt;</span>
-                <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="query..." class="w-full bg-transparent text-[11px] text-gray-900 dark:text-gray-100 outline-none placeholder-gray-400 font-mono">
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono" x-data="{ q:'', open:false, items:[{t:'ingredient',n:'Biotin',s:'biotin'},{t:'condition',n:'Hair Loss',s:'hair-loss'}] }">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Search</span></div>
+                <div class="px-3 py-2 relative">
+                  <div class="flex items-center gap-2 border border-gray-300 rounded px-2.5 py-2">
+                    <span class="text-gray-400 text-[10px]">&gt;</span>
+                    <input x-model="q" @input="open = q.length > 0" @click.away="open = false" type="text" placeholder="query..." class="w-full bg-transparent text-[11px] text-gray-900 outline-none placeholder-gray-400 font-mono">
+                  </div>
+                  <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div x-show="open" x-cloak class="absolute left-3 right-3 mt-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900 shadow-lg z-10 overflow-hidden">
-                <template x-for="r in items.filter(i => i.n.toLowerCase().includes(q.toLowerCase()))" :key="r.s"><a :href="'https://citedhealth.com/' + (r.t==='ingredient'?'ingredients/':'conditions/') + r.s + '/'" target="_blank" class="flex items-center justify-between px-3 py-1.5 text-[10px] hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-mono"><span x-text="r.n"></span><span x-text="r.t" class="text-[9px] text-gray-400"></span></a></template>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827]"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Search</span></div>
+                <div class="px-3 py-2">
+                  <div class="flex items-center gap-2 border border-gray-600 rounded px-2.5 py-2 bg-[#1a1a1a]">
+                    <span class="text-gray-400 text-[10px]">&gt;</span>
+                    <span class="text-[11px] text-gray-500 font-mono">query...</span>
+                  </div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
               </div>
-              <div class="mc-foot"><a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
             </div>
           </div>
         </template>
 
         <!-- ======= SAFETY ======= -->
         <template x-if="activeWidget==='safety'">
-          <div class="mock-card border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm">
-            <div class="h-1" style="background:#2563EB"></div>
-            <div class="p-3">
-              <div class="flex items-center gap-2 mb-2"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Generally Safe</span><span class="font-semibold text-xs text-gray-900 dark:text-white">Biotin</span></div>
-              <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Side Effects</p><ul class="text-[10px] text-gray-600 dark:text-gray-400 space-y-0.5 pl-3" style="list-style:disc"><li>Mild GI discomfort at high doses</li><li>May interfere with lab tests</li></ul></div>
-              <div class="mb-2"><p class="text-[9px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">Drug Interactions</p><ul class="text-[10px] text-gray-600 dark:text-gray-400 space-y-0.5 pl-3" style="list-style:disc"><li>Anticonvulsants (carbamazepine)</li></ul></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block" style="background: color-mix(in srgb, #2563EB 10%, white); color: #2563EB">Modern</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-200 bg-white shadow-sm">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="flex items-center gap-2 mb-2"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Generally Safe</span><span class="font-semibold text-xs text-gray-900">Biotin</span></div>
+                  <ul class="text-[10px] text-gray-600 space-y-0.5 pl-3 mb-2" style="list-style:disc"><li>Mild GI discomfort at high doses</li><li>May interfere with lab tests</li></ul>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="h-1" style="background:#2563EB"></div>
+                <div class="p-3">
+                  <div class="flex items-center gap-2 mb-2"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Generally Safe</span><span class="font-semibold text-xs text-gray-100">Biotin</span></div>
+                  <ul class="text-[10px] text-gray-400 space-y-0.5 pl-3 mb-2" style="list-style:disc"><li>Mild GI discomfort at high doses</li><li>May interfere with lab tests</li></ul>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='safety'">
-          <div class="mock-card border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-            <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Safe</span><div><div class="font-semibold text-xs text-gray-900 dark:text-white">Biotin Safety Profile</div></div></div>
-            <div class="px-3 py-2">
-              <div class="text-[10px] mb-1"><span class="font-semibold">Side Effects:</span> <span class="text-gray-500 dark:text-gray-400">GI discomfort, lab test interference</span></div>
-              <div class="text-[10px] mb-2"><span class="font-semibold">Interactions:</span> <span class="text-gray-500 dark:text-gray-400">Anticonvulsants</span></div>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-blue-50 text-blue-700">Clinical</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border-2 border-gray-200 bg-white">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-100 bg-gray-50"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Safe</span><div class="font-semibold text-xs text-gray-900">Biotin Safety Profile</div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] mb-2"><span class="font-semibold">Side Effects:</span> <span class="text-gray-500">GI discomfort, lab interference</span></div>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border-2 border-gray-700 bg-[#1a1a1a] text-gray-100">
+                <div class="flex items-center gap-3 px-3 py-2 border-b border-gray-700 bg-[#111827]"><span class="text-[10px] px-2 py-0.5 rounded-full font-bold text-white" style="background:#10b981">Safe</span><div class="font-semibold text-xs text-gray-100">Biotin Safety Profile</div></div>
+                <div class="px-3 py-2">
+                  <div class="text-[10px] mb-2"><span class="font-semibold text-gray-100">Side Effects:</span> <span class="text-gray-400">GI discomfort, lab interference</span></div>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
         <template x-if="activeWidget==='safety'">
-          <div class="mock-card border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono">
-            <div class="px-3 py-2 border-b border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Safety Report</span><span class="text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">A</span></div>
-            <div class="px-3 py-2 text-[10px]">
-              <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Ingredient</td><td class="font-semibold text-gray-900 dark:text-white">Biotin</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Rating</td><td>Generally Safe (A)</td></tr><tr><td class="text-gray-400 pr-2 py-0.5 align-top">Side Effects</td><td>GI discomfort, lab interference</td></tr><tr><td class="text-gray-400 pr-2 py-0.5 align-top">Interactions</td><td>Anticonvulsants</td></tr></table>
-              <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+          <div>
+            <div class="text-center mb-2"><span class="text-xs font-medium px-3 py-1 rounded-full inline-block bg-gray-100 text-gray-700">Research</span></div>
+            <div class="mb-2">
+              <div class="text-[10px] text-gray-400 mb-1">Light</div>
+              <div class="mock-card border border-gray-300 bg-white font-mono">
+                <div class="px-3 py-2 border-b border-gray-300 bg-gray-50 flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Safety Report</span><span class="text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">A</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Ingredient</td><td class="font-semibold text-gray-900">Biotin</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Rating</td><td>Generally Safe (A)</td></tr></table>
+                  <div class="mc-foot">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="text-[10px] text-gray-400 mb-1">Dark</div>
+              <div class="mock-card border border-gray-600 bg-[#1a1a1a] text-gray-100 font-mono">
+                <div class="px-3 py-2 border-b border-gray-600 bg-[#111827] flex items-center justify-between"><span class="text-[10px] font-bold tracking-wider uppercase text-gray-400">Safety Report</span><span class="text-[9px] px-1.5 py-0.5 rounded font-bold text-white" style="background:#10b981">A</span></div>
+                <div class="px-3 py-2 text-[10px]">
+                  <table class="w-full"><tr><td class="text-gray-400 pr-2 py-0.5">Ingredient</td><td class="font-semibold text-gray-100">Biotin</td></tr><tr><td class="text-gray-400 pr-2 py-0.5">Rating</td><td class="text-gray-300">Generally Safe (A)</td></tr></table>
+                  <div style="font-size:9px;color:#9ca3af;border-top:1px solid #374151;padding-top:6px;margin-top:8px">Not medical advice. <a href="https://citedhealth.com" class="hover:underline" style="color:#2563EB">Powered by Cited Health</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
@@ -570,7 +897,7 @@
           <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-citedhealth</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">evidence, ingredient, condition, paper, figure, search, safety</td><td class="py-3 pr-4 text-red-500 text-xs font-medium">required</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Widget type to render</td></tr>
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-slug</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">"vitamin-d", "insomnia", "magnesium"</td><td class="py-3 pr-4 text-red-500 text-xs font-medium">required*</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Entity slug. *Not required for search widget.</td></tr>
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-theme</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">light, dark, sepia</td><td class="py-3 pr-4 text-gray-400 text-xs">light</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Visual theme.</td></tr>
+            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-theme</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">light, dark, sepia, auto</td><td class="py-3 pr-4 text-gray-400 text-xs">light</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Visual theme. <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">auto</code> detects <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">prefers-color-scheme</code> from the host page.</td></tr>
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-style</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">modern, clinical, research</td><td class="py-3 pr-4 text-gray-400 text-xs">modern</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Widget design style — affects layout and typography.</td></tr>
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-size</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">default, compact</td><td class="py-3 pr-4 text-gray-400 text-xs">default</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Widget size. <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">compact</code> for sidebars.</td></tr>
             <tr class="hover:bg-gray-50 dark:hover:bg-gray-800"><td class="py-3 pr-4"><code class="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-xs font-mono">data-placeholder</code></td><td class="py-3 pr-4 text-gray-600 dark:text-gray-400 text-xs">any string</td><td class="py-3 pr-4 text-gray-400 text-xs">"Search..."</td><td class="py-3 text-gray-600 dark:text-gray-400 text-xs">Search box placeholder (search widget only).</td></tr>
@@ -598,6 +925,7 @@
         <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden"><div class="bg-gray-900 p-3 border-b border-gray-700 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-gray-700 border-2 border-gray-500"></span><span class="font-semibold text-sm text-white">Dark</span></div><code class="text-[10px] bg-gray-700 px-1.5 py-0.5 rounded text-gray-300">data-theme="dark"</code></div><div class="bg-gray-900 p-3"><p class="text-xs text-gray-400">Dark background, light text.</p></div></div>
         <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden"><div class="p-3 border-b flex items-center justify-between" style="background:#f5f0e8;border-color:#d4c5a9"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full" style="background:#d4c5a9;border:2px solid #b8a898"></span><span class="font-semibold text-sm" style="color:#3d3529">Sepia</span></div><code class="text-[10px] px-1.5 py-0.5 rounded" style="background:#ede7da;color:#6b5e4e">data-theme="sepia"</code></div><div class="p-3" style="background:#f5f0e8"><p class="text-xs" style="color:#6b5e4e">Warm parchment tones.</p></div></div>
       </div>
+      <div class="text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 rounded-lg p-3 mt-4"><strong>Auto dark mode:</strong> Set <code class="bg-gray-100 dark:bg-gray-700 px-1 rounded">data-theme="auto"</code> to automatically match your site's color scheme via <code class="bg-gray-100 dark:bg-gray-700 px-1 rounded">prefers-color-scheme</code>.</div>
     </div>
   </section>
 
