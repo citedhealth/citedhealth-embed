@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cited Health Embed Widget — Evidence-Based All Health Topics Widgets for Any Website</title>
-  <meta name="description" content="Embed Cited Health health evidence widgets on any website. Zero dependencies, Shadow DOM isolation, 3 themes. Free CDN via jsDelivr.">
+  <meta name="description" content="Embed Cited Health health widgets on any website. Zero dependencies, Shadow DOM, 3 themes. Free CDN via jsDelivr.">
   <meta name="theme-color" content="#2563EB">
 
   <!-- Open Graph -->
@@ -12,6 +12,45 @@
   <meta property="og:description" content="Add evidence-based All Health Topics widgets to any website in one line of HTML.">
   <meta property="og:url" content="https://widget.citedhealth.com">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://citedhealth.com/static/og/homepage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Cited Health">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cited Health Embed Widget">
+  <meta name="twitter:description" content="Add evidence-based All Health Topics widgets to any website in one line of HTML.">
+  <meta name="twitter:image" content="https://citedhealth.com/static/og/homepage.png">
+
+  <!-- Canonical + SEO -->
+  <link rel="canonical" href="https://widget.citedhealth.com">
+  <meta name="author" content="Cited Health Inc.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://citedhealth.com/static/favicon.ico" sizes="32x32">
+  <link rel="icon" href="https://citedhealth.com/static/icon.svg" type="image/svg+xml">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://citedhealth.com">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Cited Health Embed Widget","url":"https://widget.citedhealth.com","applicationCategory":"HealthApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Embed evidence-based All Health Topics supplement widgets on any website. Zero dependencies, Shadow DOM isolation.","publisher":{"@type":"Organization","name":"Cited Health Inc.","url":"https://citedhealth.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cited Health","item":"https://citedhealth.com"},{"@type":"ListItem","position":2,"name":"Widget Docs"}]},{"@type":"SoftwareSourceCode","name":"citedhealth-embed","codeRepository":"https://github.com/citedhealth/citedhealth-embed","programmingLanguage":"TypeScript","runtimePlatform":"Browser","license":"https://opensource.org/licenses/MIT"}]}
+  </script>
+
+  <!-- Geist Mono for code blocks -->
+  <style>
+    @font-face {
+      font-family: "Geist Mono";
+      src: url("https://cdn.citedhealth.com/fonts/GeistMono-Variable.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,6 +60,9 @@
         extend: {
           colors: {
             accent: '#2563EB',
+          },
+          fontFamily: {
+            mono: ['"Geist Mono"', '"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
           }
         }
       }
@@ -34,42 +76,17 @@
   <script src="https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"></script>
 
   <style>
-    :root { --accent: #2563EB; }
-    .accent-text { color: var(--accent); }
-    .accent-bg { background-color: var(--accent); }
-    .accent-border { border-color: var(--accent); }
-    pre { tab-size: 2; }
-    .code-block {
-      background: #1e1e2e;
-      color: #cdd6f4;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-size: 0.875rem;
-      line-height: 1.6;
-      overflow-x: auto;
-    }
-    .code-block .hl-tag { color: #89b4fa; }
-    .code-block .hl-attr { color: #a6e3a1; }
-    .code-block .hl-val { color: #f9e2af; }
-    .code-block .hl-comment { color: #6c7086; font-style: italic; }
-    .grade-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      font-weight: 700;
-      font-size: 0.875rem;
-      color: white;
-    }
-    .grade-a { background: #16a34a; }
-    .grade-b { background: #2563eb; }
-    .grade-c { background: #d97706; }
-    .grade-d { background: #dc2626; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #0f172a; color: #f1f5f9; }
-    }
+    :root{--accent:#2563EB} .accent-text{color:var(--accent)} .accent-bg{background-color:var(--accent)} .accent-border{border-color:var(--accent)}
+    pre{tab-size:2;margin:0}
+    .code-block-wrapper{position:relative;margin-bottom:1rem}
+    .code-lang-badge{position:absolute;top:0;left:12px;transform:translateY(-50%);background:#45475a;color:#cdd6f4;font-family:'Geist Mono','JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;z-index:1}
+    .code-copy-btn{position:absolute;top:8px;right:8px;background:#45475a;color:#cdd6f4;border:none;padding:4px 10px;border-radius:4px;font-size:11px;font-family:inherit;cursor:pointer;transition:background .15s;z-index:1}
+    .code-copy-btn:hover{background:#585b70}
+    .code-block{background:#1e1e2e;color:#cdd6f4;border-radius:8px;padding:1.25rem 1.25rem 1rem;font-size:13px;line-height:1.7;overflow-x:auto;font-family:'Geist Mono','JetBrains Mono','Fira Code',ui-monospace,monospace;-webkit-font-smoothing:antialiased}
+    .hl-tag{color:#89b4fa} .hl-attr{color:#a6e3a1} .hl-val{color:#f9e2af} .hl-comment{color:#6c7086;font-style:italic} .hl-str{color:#f38ba8} .hl-kw{color:#cba6f7} .hl-num{color:#fab387} .hl-fn{color:#89dceb} .hl-punct{color:#9399b2}
+    .grade-badge{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;font-weight:700;font-size:.875rem;color:#fff}
+    .grade-a{background:#16a34a} .grade-b{background:#2563eb} .grade-c{background:#d97706} .grade-d{background:#dc2626}
+    @media(prefers-color-scheme:dark){body{background:#0f172a;color:#f1f5f9}}
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" x-data="{ mobileMenuOpen: false }">
@@ -136,11 +153,10 @@
         </div>
 
         <!-- Quick install snippet -->
-        <div class="code-block text-xs sm:text-sm">
-          <span class="hl-comment">&lt;!-- 1. Place the widget div --&gt;</span><br>
-          <span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"vitamin-d"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br>
-          <span class="hl-comment">&lt;!-- 2. Add the script once --&gt;</span><br>
-          <span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
+        <div class="code-block-wrapper" x-data="{ copied: false }">
+          <div class="code-lang-badge">HTML</div>
+          <button @click="navigator.clipboard?.writeText($refs.heroCode.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+          <div class="code-block text-xs sm:text-sm" x-ref="heroCode"><span class="hl-comment">&lt;!-- 1. Place the widget div --&gt;</span><br><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"vitamin-d"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br><span class="hl-comment">&lt;!-- 2. Add the script once --&gt;</span><br><span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span></div>
         </div>
       </div>
 
@@ -171,16 +187,9 @@
         <p class="text-gray-600">Two lines of HTML. That's all it takes.</p>
       </div>
 
-      <div class="max-w-3xl mx-auto" x-data="{ copied: false }">
-        <div class="relative">
-          <div class="code-block text-sm leading-relaxed">
-<span class="hl-comment">&lt;!-- Step 1: Place widget divs anywhere on your page --&gt;</span><br>
-<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"vitamin-d"</span> <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br>
-<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"ingredient"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"magnesium"</span> <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br>
-<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"safety"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"melatonin"</span> <span class="hl-attr">data-size</span>=<span class="hl-val">"compact"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br>
-<span class="hl-comment">&lt;!-- Step 2: Load the embed script once, anywhere --&gt;</span><br>
-<span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
-          </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="code-block-wrapper" x-data="{ copied: false }">
+          <div class="code-lang-badge">HTML</div>
           <script type="text/plain" id="quick-start-snippet"><!-- Place widget divs -->
 <div data-citedhealth="evidence" data-slug="vitamin-d" data-theme="light"></div>
 <div data-citedhealth="ingredient" data-slug="magnesium" data-theme="light"></div>
@@ -190,10 +199,17 @@
 <script src="https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"></script></script>
           <button
             @click="navigator.clipboard?.writeText(document.getElementById('quick-start-snippet').textContent); copied = true; setTimeout(() => copied = false, 2000)"
-            class="absolute top-3 right-3 px-3 py-1.5 text-xs rounded text-white font-medium transition-all"
-            style="background: #2563EB"
+            class="code-copy-btn"
             x-text="copied ? '✓ Copied!' : 'Copy'">
           </button>
+          <div class="code-block text-sm leading-relaxed">
+<span class="hl-comment">&lt;!-- Step 1: Place widget divs anywhere on your page --&gt;</span><br>
+<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"vitamin-d"</span> <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br>
+<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"ingredient"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"magnesium"</span> <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br>
+<span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"safety"</span> <span class="hl-attr">data-slug</span>=<span class="hl-val">"melatonin"</span> <span class="hl-attr">data-size</span>=<span class="hl-val">"compact"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br>
+<span class="hl-comment">&lt;!-- Step 2: Load the embed script once, anywhere --&gt;</span><br>
+<span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
+          </div>
         </div>
 
         <div class="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
@@ -300,7 +316,15 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span><br>&nbsp; <span class="hl-attr">data-ingredient</span>=<span class="hl-val">"biotin"</span><br>&nbsp; <span class="hl-attr">data-condition</span>=<span class="hl-val">"hair-loss"</span><br>&nbsp; <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c1.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c1"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"evidence"</span>
+  <span class="hl-attr">data-ingredient</span>=<span class="hl-val">"biotin"</span>
+  <span class="hl-attr">data-condition</span>=<span class="hl-val">"hair-loss"</span>
+  <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 2. Ingredient -->
@@ -324,7 +348,14 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"ingredient"</span><br>&nbsp; <span class="hl-attr">data-slug</span>=<span class="hl-val">"biotin"</span><br>&nbsp; <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c2.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c2"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"ingredient"</span>
+  <span class="hl-attr">data-slug</span>=<span class="hl-val">"biotin"</span>
+  <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 3. Condition -->
@@ -348,7 +379,14 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"condition"</span><br>&nbsp; <span class="hl-attr">data-slug</span>=<span class="hl-val">"hair-loss"</span><br>&nbsp; <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c3.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c3"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"condition"</span>
+  <span class="hl-attr">data-slug</span>=<span class="hl-val">"hair-loss"</span>
+  <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 4. Paper -->
@@ -370,7 +408,14 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"paper"</span><br>&nbsp; <span class="hl-attr">data-doi</span>=<span class="hl-val">"10.1159/000462981"</span><br>&nbsp; <span class="hl-attr">data-style</span>=<span class="hl-val">"research"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c4.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c4"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"paper"</span>
+  <span class="hl-attr">data-doi</span>=<span class="hl-val">"10.1159/000462981"</span>
+  <span class="hl-attr">data-style</span>=<span class="hl-val">"research"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 5. Figure -->
@@ -391,7 +436,14 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"figure"</span><br>&nbsp; <span class="hl-attr">data-doi</span>=<span class="hl-val">"10.1159/000462981"</span><br>&nbsp; <span class="hl-attr">data-figure</span>=<span class="hl-val">"2"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c5.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c5"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"figure"</span>
+  <span class="hl-attr">data-doi</span>=<span class="hl-val">"10.1159/000462981"</span>
+  <span class="hl-attr">data-figure</span>=<span class="hl-val">"2"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 6. Search -->
@@ -411,7 +463,15 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"search"</span><br>&nbsp; <span class="hl-attr">data-placeholder</span>=<span class="hl-val">"Search All Health Topics…"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br><span class="hl-comment">&lt;!-- No data-slug needed --&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c6.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c6"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"search"</span>
+  <span class="hl-attr">data-placeholder</span>=<span class="hl-val">"Search All Health Topics..."</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span>
+
+<span class="hl-comment">&lt;!-- No data-slug needed --&gt;</span></pre>
+          </div>
         </div>
 
         <!-- 7. Safety -->
@@ -436,7 +496,16 @@
               </div>
             </div>
           </div>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"safety"</span><br>&nbsp; <span class="hl-attr">data-ingredient</span>=<span class="hl-val">"biotin"</span><br>&nbsp; <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span><br>&nbsp; <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span><br><br><span class="hl-comment">&lt;!-- Grades: A=Safe B=Moderate C=Caution D=Consult --&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.c7.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="c7"><span class="hl-tag">&lt;div</span> <span class="hl-attr">data-citedhealth</span>=<span class="hl-val">"safety"</span>
+  <span class="hl-attr">data-ingredient</span>=<span class="hl-val">"biotin"</span>
+  <span class="hl-attr">data-style</span>=<span class="hl-val">"modern"</span>
+  <span class="hl-attr">data-theme</span>=<span class="hl-val">"light"</span><span class="hl-tag">&gt;&lt;/div&gt;</span>
+
+<span class="hl-comment">&lt;!-- Grades: A=Safe B=Moderate C=Caution D=Consult --&gt;</span></pre>
+          </div>
         </div>
 
       </div>
@@ -505,17 +574,32 @@
         <div class="border-2 rounded-xl p-5 bg-white" style="border-color:#2563EB">
           <div class="flex items-center gap-2 mb-2"><span>⚡</span><h3 class="font-bold text-gray-900 text-sm">jsDelivr CDN</h3><span class="text-[10px] px-1.5 py-0.5 rounded-full font-medium text-white ml-auto" style="background:#2563EB">Recommended</span></div>
           <p class="text-xs text-gray-500 mb-3">Global CDN, auto-updates with npm.</p>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.cdn1.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="cdn1"><span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span></pre>
+          </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 bg-white">
           <div class="flex items-center gap-2 mb-2"><span>📦</span><h3 class="font-bold text-gray-900 text-sm">npm Package</h3></div>
           <p class="text-xs text-gray-500 mb-3">For Webpack, Vite, Rollup bundlers.</p>
-          <div class="code-block text-xs">npm install citedhealth-embed<br><br><span class="hl-comment">// In your JS/TS:</span><br>import 'citedhealth-embed';</div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">Shell</div>
+            <button @click="navigator.clipboard?.writeText($refs.cdn2.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="cdn2">npm install citedhealth-embed
+
+<span class="hl-comment">// In your JS/TS:</span>
+<span class="hl-kw">import</span> <span class="hl-str">'citedhealth-embed'</span>;</pre>
+          </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 bg-white">
           <div class="flex items-center gap-2 mb-2"><span>☁️</span><h3 class="font-bold text-gray-900 text-sm">R2 CDN</h3></div>
           <p class="text-xs text-gray-500 mb-3">Hosted by Cited Health on Cloudflare R2.</p>
-          <div class="code-block text-xs"><span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.citedhealth.com/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span></div>
+          <div class="code-block-wrapper" x-data="{ copied: false }">
+            <div class="code-lang-badge">HTML</div>
+            <button @click="navigator.clipboard?.writeText($refs.cdn3.textContent); copied = true; setTimeout(() => copied = false, 2000)" class="code-copy-btn" x-text="copied ? '✓' : 'Copy'"></button>
+            <pre class="code-block text-xs" x-ref="cdn3"><span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.citedhealth.com/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span></pre>
+          </div>
         </div>
       </div>
     </div>
