@@ -181,8 +181,15 @@
 <span class="hl-comment">&lt;!-- Step 2: Load the embed script once, anywhere --&gt;</span><br>
 <span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-val">"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
           </div>
+          <script type="text/plain" id="quick-start-snippet"><!-- Place widget divs -->
+<div data-citedhealth="evidence" data-slug="vitamin-d" data-theme="light"></div>
+<div data-citedhealth="ingredient" data-slug="magnesium" data-theme="light"></div>
+<div data-citedhealth="safety" data-slug="melatonin" data-size="compact"></div>
+
+<!-- Load script once -->
+<script src="https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"></script></script>
           <button
-            @click="navigator.clipboard?.writeText(`<!-- Place widget divs -->\n<div data-citedhealth=\"evidence\" data-slug=\"vitamin-d\" data-theme=\"light\"></div>\n<div data-citedhealth=\"ingredient\" data-slug=\"magnesium\" data-theme=\"light\"></div>\n<div data-citedhealth=\"safety\" data-slug=\"melatonin\" data-size=\"compact\"></div>\n\n<!-- Load script once -->\n<script src=\"https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js\"><\/script>`); copied = true; setTimeout(() => copied = false, 2000)"
+            @click="navigator.clipboard?.writeText(document.getElementById('quick-start-snippet').textContent); copied = true; setTimeout(() => copied = false, 2000)"
             class="absolute top-3 right-3 px-3 py-1.5 text-xs rounded text-white font-medium transition-all"
             style="background: #2563EB"
             x-text="copied ? '✓ Copied!' : 'Copy'">
