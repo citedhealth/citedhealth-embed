@@ -443,14 +443,14 @@ function getThemeCSS(accent, style = "modern") {
   transition: border-color 0.2s;
 }
 
-/* Light theme (default) */
+/* Light theme (default) \u2014 aligned with Django base_card.html */
 .cited-widget[data-theme="light"] {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --border: #e5e7eb;
+  --bg: #fff;
+  --text: #1e293b;
+  --border: #e2e8f0;
   --accent: var(--site-accent);
-  --muted: #6b7280;
-  --surface: #f9fafb;
+  --muted: #64748b;
+  --surface: #f8fafc;
   --ribbon: #f9fafb;
   --badge-bg: #f3f4f6;
   --badge-text: #374151;
@@ -470,8 +470,8 @@ function getThemeCSS(accent, style = "modern") {
   --border: #374151;
   --accent: var(--site-accent);
   --muted: #9ca3af;
-  --surface: #111111;
-  --ribbon: #111111;
+  --surface: #111827;
+  --ribbon: #111827;
   --badge-bg: #374151;
   --badge-text: #d1d5db;
   --link: #93c5fd;
