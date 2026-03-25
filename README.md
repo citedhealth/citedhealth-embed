@@ -112,12 +112,6 @@ That's it. The widget fetches evidence data from the Cited Health API and render
 <script src="https://cdn.jsdelivr.net/npm/citedhealth-embed@1/dist/embed.min.js"></script>
 ```
 
-### R2 CDN (citedhealth.com hosted)
-
-```html
-<script src="https://cdn.citedhealth.com/embed.min.js"></script>
-```
-
 ### npm (for bundlers)
 
 ```bash

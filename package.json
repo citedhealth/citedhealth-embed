@@ -1,7 +1,7 @@
 {
   "name": "citedhealth-embed",
-  "version": "1.0.0",
-  "description": "Embed Cited Health health evidence widgets — ingredients, conditions, research papers, safety grades. Zero dependencies, Shadow DOM, 3 themes.",
+  "version": "1.0.1",
+  "description": "Embed Cited Health health evidence widgets \u2014 ingredients, conditions, research papers, safety grades. Zero dependencies, Shadow DOM, 3 themes.",
   "main": "dist/embed.min.js",
   "module": "dist/embed.esm.js",
   "types": "dist/index.d.ts",
