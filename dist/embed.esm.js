@@ -901,6 +901,48 @@ function gradeBadgeHTML(grade, large = false) {
   ">${grade.toUpperCase()}</div>`;
 }
 
+// src/rich-snippets.ts
+function gradeToRating(grade) {
+  var _a;
+  const map = { A: 5, B: 4, C: 3, D: 2, F: 1 };
+  return (_a = map[grade.toUpperCase()]) != null ? _a : 3;
+}
+function injectClaimReview(data, domain, siteName) {
+  if (document.querySelector("script[data-cited-snippet]")) return;
+  const evidenceUrl = `https://${domain}/evidence/${data.ingredientSlug}/for/${data.conditionSlug}/`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ClaimReview",
+    claimReviewed: `${data.ingredientName} supports ${data.conditionName}`,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: gradeToRating(data.grade),
+      bestRating: 5,
+      worstRating: 1,
+      ratingExplanation: data.summary
+    },
+    author: {
+      "@type": "Organization",
+      name: siteName,
+      url: `https://${domain}`
+    },
+    itemReviewed: {
+      "@type": "Claim",
+      name: `${data.ingredientName} for ${data.conditionName}`,
+      appearance: {
+        "@type": "WebPage",
+        url: evidenceUrl
+      }
+    },
+    url: evidenceUrl
+  };
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.setAttribute("data-cited-snippet", "true");
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+}
+
 // src/widgets/evidence.ts
 function initEvidenceWidget(el, config) {
   var _a, _b;
@@ -923,6 +965,20 @@ function initEvidenceWidget(el, config) {
       return;
     }
     renderEvidence(container, item, config);
+    if (el.dataset.noSnippet !== "true") {
+      injectClaimReview(
+        {
+          ingredientName: item.ingredient.name,
+          conditionName: item.condition.name,
+          grade: item.grade,
+          summary: item.summary,
+          ingredientSlug: item.ingredient.slug,
+          conditionSlug: item.condition.slug
+        },
+        config.domain,
+        config.name
+      );
+    }
   }).catch(() => {
     renderError(container, "Unable to load evidence data. Please try again later.", config);
   });
