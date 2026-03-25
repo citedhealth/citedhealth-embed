@@ -263,7 +263,7 @@
             <div class="flex border border-gray-200 rounded-lg overflow-hidden text-xs">
               <button @click="activeTheme = 'light'" :class="activeTheme === 'light' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'" class="px-3 py-1.5 font-medium transition-colors" :style="activeTheme === 'light' ? 'background: #2563EB' : ''">Light</button>
               <button @click="activeTheme = 'dark'" :class="activeTheme === 'dark' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'" class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors" :style="activeTheme === 'dark' ? 'background: #2563EB' : ''">Dark</button>
-              <button @click="activeTheme = 'clinical'" :class="activeTheme === 'clinical' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'" class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors" :style="activeTheme === 'clinical' ? 'background: #2563EB' : ''">Clinical</button>
+              <button @click="activeTheme = 'sepia'" :class="activeTheme === 'sepia' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'" class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors" :style="activeTheme === 'sepia' ? 'background: #2563EB' : ''">Sepia</button>
             </div>
           </div>
         </div>
@@ -425,6 +425,172 @@
         <p class="text-gray-600">All <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm">data-*</code> attributes supported by Cited Health embed widgets.</p>
       </div>
 
+      <!-- Style × Theme Visual Preview Matrix -->
+      <div class="mb-12" x-data="{ previewStyle: 'modern', previewTheme: 'light' }">
+        <h3 class="text-lg font-semibold text-gray-900 mb-1 text-center">Style × Theme Preview</h3>
+        <p class="text-sm text-gray-500 text-center mb-6">See how <code class="bg-gray-100 px-1 rounded">data-style</code> and <code class="bg-gray-100 px-1 rounded">data-theme</code> combine.</p>
+
+        <!-- Toggles -->
+        <div class="flex flex-wrap gap-4 justify-center mb-8">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-gray-600">Style:</span>
+            <div class="flex border border-gray-200 rounded-lg overflow-hidden text-xs">
+              <button @click="previewStyle = 'modern'"
+                      :style="previewStyle === 'modern' ? 'background: #2563EB' : ''"
+                      :class="previewStyle === 'modern' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium transition-colors">Modern</button>
+              <button @click="previewStyle = 'clinical'"
+                      :style="previewStyle === 'clinical' ? 'background: #2563EB' : ''"
+                      :class="previewStyle === 'clinical' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors">Clinical</button>
+              <button @click="previewStyle = 'research'"
+                      :style="previewStyle === 'research' ? 'background: #2563EB' : ''"
+                      :class="previewStyle === 'research' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors">Research</button>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-gray-600">Theme:</span>
+            <div class="flex border border-gray-200 rounded-lg overflow-hidden text-xs">
+              <button @click="previewTheme = 'light'"
+                      :style="previewTheme === 'light' ? 'background: #2563EB' : ''"
+                      :class="previewTheme === 'light' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium transition-colors">Light</button>
+              <button @click="previewTheme = 'dark'"
+                      :style="previewTheme === 'dark' ? 'background: #2563EB' : ''"
+                      :class="previewTheme === 'dark' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors">Dark</button>
+              <button @click="previewTheme = 'sepia'"
+                      :style="previewTheme === 'sepia' ? 'background: #2563EB' : ''"
+                      :class="previewTheme === 'sepia' ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50'"
+                      class="px-3 py-1.5 font-medium border-l border-gray-200 transition-colors">Sepia</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock Evidence Grade Card — adapts to style + theme -->
+        <div class="max-w-sm mx-auto transition-all duration-200">
+
+          <!-- MODERN style -->
+          <template x-if="previewStyle === 'modern'">
+            <div class="rounded-xl overflow-hidden border shadow-sm transition-all"
+                 :style="previewTheme === 'dark'
+                   ? 'background:#1a1a1a; border-color:#333; color:#f3f4f6'
+                   : previewTheme === 'sepia'
+                   ? 'background:#f5f0e8; border-color:#d4c5a9; color:#3d3529'
+                   : 'background:#fff; border-color:#e5e7eb; color:#111827'">
+              <!-- Accent bar -->
+              <div class="h-1" style="background: #2563EB"></div>
+              <div class="p-4">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="inline-flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold text-white" style="background: #16a34a">A</span>
+                      <span class="font-semibold text-sm">Biotin for Hair Loss</span>
+                    </div>
+                    <p class="text-xs opacity-60">Strong Evidence · 23 studies</p>
+                  </div>
+                </div>
+                <p class="text-xs opacity-70 mb-3 leading-relaxed">Biotin supplementation may support hair growth in people with biotin deficiency. Multiple RCTs show positive outcomes.</p>
+                <div class="flex gap-2 mb-3">
+                  <div class="flex-1 rounded-lg p-2 text-center text-xs" :style="previewTheme === 'dark' ? 'background:#2a2a2a' : previewTheme === 'sepia' ? 'background:#ede7da' : 'background:#f9fafb'">
+                    <div class="font-bold text-sm">23</div><div class="opacity-60">Studies</div>
+                  </div>
+                  <div class="flex-1 rounded-lg p-2 text-center text-xs" :style="previewTheme === 'dark' ? 'background:#2a2a2a' : previewTheme === 'sepia' ? 'background:#ede7da' : 'background:#f9fafb'">
+                    <div class="font-bold text-sm">8</div><div class="opacity-60">RCTs</div>
+                  </div>
+                  <div class="flex-1 rounded-lg p-2 text-center text-xs" :style="previewTheme === 'dark' ? 'background:#2a2a2a' : previewTheme === 'sepia' ? 'background:#ede7da' : 'background:#f9fafb'">
+                    <div class="font-bold text-sm">4</div><div class="opacity-60">Meta</div>
+                  </div>
+                </div>
+                <p class="text-[10px] opacity-40 mb-2">Not intended to diagnose, treat, cure or prevent any disease.</p>
+                <a href="#" class="text-[10px] opacity-50 hover:opacity-80" style="color: #2563EB">Powered by Cited Health ↗</a>
+              </div>
+            </div>
+          </template>
+
+          <!-- CLINICAL style -->
+          <template x-if="previewStyle === 'clinical'">
+            <div class="rounded-lg overflow-hidden border-2 transition-all"
+                 :style="previewTheme === 'dark'
+                   ? 'background:#111827; border-color:#1f2937; color:#f9fafb'
+                   : previewTheme === 'sepia'
+                   ? 'background:#f5f0e8; border-color:#b8a898; color:#3d3529'
+                   : 'background:#fff; border-color:#e5e7eb; color:#111827'">
+              <div class="flex items-center gap-4 px-5 py-4 border-b"
+                   :style="previewTheme === 'dark' ? 'border-color:#1f2937' : previewTheme === 'sepia' ? 'border-color:#d4c5a9; background:#ede7da' : 'border-color:#f3f4f6; background:#f9fafb'">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-bold text-white flex-shrink-0" style="background: #16a34a">A</span>
+                <div>
+                  <div class="font-semibold text-sm">Biotin for Hair Loss</div>
+                  <div class="text-xs opacity-50">Strong Evidence</div>
+                </div>
+              </div>
+              <div class="px-5 py-4">
+                <p class="text-xs opacity-70 mb-4 leading-relaxed">Biotin supplementation may support hair growth in people with biotin deficiency. Multiple RCTs show positive outcomes.</p>
+                <div class="flex gap-6 text-xs mb-4">
+                  <span><span class="font-semibold">23</span> <span class="opacity-50">Studies</span></span>
+                  <span><span class="font-semibold">8</span> <span class="opacity-50">RCTs</span></span>
+                  <span><span class="font-semibold">4</span> <span class="opacity-50">Meta-analyses</span></span>
+                </div>
+                <p class="text-[10px] opacity-40 mb-2">Not intended to diagnose, treat, cure or prevent any disease.</p>
+                <a href="#" class="text-[10px] opacity-50 hover:opacity-80" style="color: #2563EB">Powered by Cited Health ↗</a>
+              </div>
+            </div>
+          </template>
+
+          <!-- RESEARCH style -->
+          <template x-if="previewStyle === 'research'">
+            <div class="rounded overflow-hidden border font-mono transition-all"
+                 :style="previewTheme === 'dark'
+                   ? 'background:#0f172a; border-color:#1e293b; color:#e2e8f0'
+                   : previewTheme === 'sepia'
+                   ? 'background:#f5f0e8; border-color:#b8a898; color:#3d3529'
+                   : 'background:#fff; border-color:#d1d5db; color:#111827'">
+              <div class="px-4 py-3 border-b flex items-center justify-between"
+                   :style="previewTheme === 'dark' ? 'border-color:#1e293b; background:#0a1020' : previewTheme === 'sepia' ? 'border-color:#d4c5a9; background:#ede7da' : 'border-color:#d1d5db; background:#f9fafb'">
+                <span class="text-xs font-bold tracking-wider uppercase opacity-60">Evidence Report</span>
+                <span class="text-xs px-2 py-0.5 rounded font-bold text-white" style="background: #16a34a">Grade A</span>
+              </div>
+              <div class="px-4 py-3">
+                <div class="text-sm font-semibold mb-1">Biotin → Hair Loss</div>
+                <p class="text-xs opacity-60 mb-3 leading-relaxed">Biotin supplementation may support hair growth in people with biotin deficiency.</p>
+                <div class="space-y-1.5 text-xs mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="opacity-50 w-20 flex-shrink-0">Studies</span>
+                    <div class="flex-1 rounded-full h-1.5 overflow-hidden" :style="previewTheme === 'dark' ? 'background:#1e293b' : previewTheme === 'sepia' ? 'background:#d4c5a9' : 'background:#e5e7eb'">
+                      <div class="h-full rounded-full" style="width: 85%; background: #16a34a;"></div>
+                    </div>
+                    <span class="font-bold w-6 text-right">23</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="opacity-50 w-20 flex-shrink-0">RCTs</span>
+                    <div class="flex-1 rounded-full h-1.5 overflow-hidden" :style="previewTheme === 'dark' ? 'background:#1e293b' : previewTheme === 'sepia' ? 'background:#d4c5a9' : 'background:#e5e7eb'">
+                      <div class="h-full rounded-full" style="width: 60%; background: #2563eb;"></div>
+                    </div>
+                    <span class="font-bold w-6 text-right">8</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="opacity-50 w-20 flex-shrink-0">Meta</span>
+                    <div class="flex-1 rounded-full h-1.5 overflow-hidden" :style="previewTheme === 'dark' ? 'background:#1e293b' : previewTheme === 'sepia' ? 'background:#d4c5a9' : 'background:#e5e7eb'">
+                      <div class="h-full rounded-full" style="width: 30%; background: #7c3aed;"></div>
+                    </div>
+                    <span class="font-bold w-6 text-right">4</span>
+                  </div>
+                </div>
+                <p class="text-[10px] opacity-40 mb-1">Not intended to diagnose, treat, cure or prevent any disease.</p>
+                <a href="#" class="text-[10px] opacity-50 hover:opacity-80" style="color: #2563EB">Powered by Cited Health ↗</a>
+              </div>
+            </div>
+          </template>
+
+          <!-- Attribute label -->
+          <div class="mt-3 text-center">
+            <code class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-500">data-style="<span x-text="previewStyle"></span>" data-theme="<span x-text="previewTheme"></span>"</code>
+          </div>
+        </div>
+      </div>
+      <!-- End Style × Theme Matrix -->
+
       <div class="overflow-x-auto">
         <table class="w-full text-sm border-collapse">
           <thead>
@@ -450,9 +616,9 @@
             </tr>
             <tr class="hover:bg-gray-50">
               <td class="py-3 pr-4"><code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">data-theme</code></td>
-              <td class="py-3 pr-4 text-gray-600 text-xs">light, dark, clinical</td>
+              <td class="py-3 pr-4 text-gray-600 text-xs">light, dark, sepia</td>
               <td class="py-3 pr-4 text-gray-400 text-xs">light</td>
-              <td class="py-3 text-gray-600 text-xs">Visual theme. <code class="bg-gray-100 px-1 rounded">clinical</code> uses white with clean medical aesthetics.</td>
+              <td class="py-3 text-gray-600 text-xs">Visual theme. <code class="bg-gray-100 px-1 rounded">sepia</code> uses warm parchment tones for a document-style aesthetic.</td>
             </tr>
             <tr class="hover:bg-gray-50">
               <td class="py-3 pr-4"><code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs font-mono">data-style</code></td>
@@ -593,17 +759,17 @@
         </div>
 
         <div class="border border-gray-200 rounded-xl overflow-hidden">
-          <div class="bg-blue-50 p-4 border-b border-blue-100">
+          <div class="p-4 border-b" style="background: #f5f0e8; border-color: #d4c5a9;">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-blue-100 border-2 border-blue-300"></span>
-                <span class="font-semibold text-gray-900">Clinical</span>
+                <span class="w-3 h-3 rounded-full" style="background: #d4c5a9; border: 2px solid #b8a898;"></span>
+                <span class="font-semibold" style="color: #3d3529;">Sepia</span>
               </div>
-              <code class="text-xs bg-white px-1.5 py-0.5 rounded text-gray-500">data-theme="clinical"</code>
+              <code class="text-xs px-1.5 py-0.5 rounded" style="background: #ede7da; color: #6b5e4e;">data-theme="sepia"</code>
             </div>
           </div>
-          <div class="bg-blue-50 p-4">
-            <p class="text-sm text-gray-600">Clinical white/blue palette. Medical-grade aesthetic for health sites.</p>
+          <div class="p-4" style="background: #f5f0e8;">
+            <p class="text-sm" style="color: #6b5e4e;">Warm parchment tones. Document-style aesthetic for academic and research sites.</p>
           </div>
         </div>
       </div>
