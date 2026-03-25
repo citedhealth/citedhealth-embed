@@ -1632,6 +1632,67 @@ function renderSafety(container, item, config) {
   `;
 }
 
+// src/web-components.ts
+function makeWidgetElement(widgetType, initFn, domainAttrs) {
+  const observed = [...domainAttrs, "theme", "style-variant", "size", "no-snippet"];
+  return class extends HTMLElement {
+    static get observedAttributes() {
+      return observed;
+    }
+    connectedCallback() {
+      if (this.shadowRoot) return;
+      this._syncDataAttrs();
+      initFn(this, '{"site":"citedhealth","name":"Cited Health","domain":"citedhealth.com","accent":"#2563EB","attribute":"data-citedhealth","apiBase":"https://citedhealth.com/api/","searchPath":"/search/","organName":"All Health Topics","organSlug":"hub"}');
+    }
+    attributeChangedCallback(_name, oldVal, newVal) {
+      if (oldVal === newVal) return;
+      if (!this.shadowRoot) return;
+      const shadow = this.shadowRoot;
+      while (shadow.firstChild) shadow.firstChild.remove();
+      this._syncDataAttrs();
+      initFn(this, '{"site":"citedhealth","name":"Cited Health","domain":"citedhealth.com","accent":"#2563EB","attribute":"data-citedhealth","apiBase":"https://citedhealth.com/api/","searchPath":"/search/","organName":"All Health Topics","organSlug":"hub"}');
+    }
+    /**
+     * Bridge element attributes → data-* attributes so the existing widget
+     * init functions work unchanged (they read from el.dataset / el.getAttribute).
+     */
+    _syncDataAttrs() {
+      const attrKey = '{"site":"citedhealth","name":"Cited Health","domain":"citedhealth.com","accent":"#2563EB","attribute":"data-citedhealth","apiBase":"https://citedhealth.com/api/","searchPath":"/search/","organName":"All Health Topics","organSlug":"hub"}'.attribute.replace("data-", "");
+      this.dataset[attrKey] = widgetType;
+      for (const a of domainAttrs) {
+        const val = this.getAttribute(a);
+        if (val !== null) this.dataset[a] = val;
+      }
+      const theme = this.getAttribute("theme");
+      if (theme !== null) this.dataset.theme = theme;
+      const styleVariant = this.getAttribute("style-variant");
+      if (styleVariant !== null) this.dataset.style = styleVariant;
+      const size = this.getAttribute("size");
+      if (size !== null) this.dataset.size = size;
+      const noSnippet = this.getAttribute("no-snippet");
+      if (noSnippet !== null) this.dataset.noSnippet = noSnippet;
+    }
+  };
+}
+function registerCitedElements() {
+  if (typeof customElements === "undefined") return;
+  const definitions = [
+    ["cited-evidence", "evidence", initEvidenceWidget, ["ingredient", "condition"]],
+    ["cited-ingredient", "ingredient", initIngredientWidget, ["slug"]],
+    ["cited-condition", "condition", initConditionWidget, ["slug"]],
+    ["cited-paper", "paper", initPaperWidget, ["doi", "pmid"]],
+    ["cited-figure", "figure", initFigureWidget, ["doi", "pmid", "figure"]],
+    ["cited-search", "search", initSearchWidget, ["placeholder"]],
+    ["cited-safety", "safety", initSafetyWidget, ["ingredient"]]
+  ];
+  for (const [tagName, widgetType, initFn, attrs] of definitions) {
+    if (!customElements.get(tagName)) {
+      customElements.define(tagName, makeWidgetElement(widgetType, initFn, attrs));
+    }
+  }
+}
+registerCitedElements();
+
 // src/core.ts
 function initWidget(el, type, config) {
   switch (type) {
