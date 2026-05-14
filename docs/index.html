@@ -38,7 +38,64 @@
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Cited Health Embed Widget","url":"https://widget.citedhealth.com","applicationCategory":"HealthApplication","operatingSystem":"Web","description":"Embed evidence-based All Health Topics supplement widgets on any website. Zero dependencies, Shadow DOM isolation.","publisher":{"@type":"Organization","name":"Cited Health Inc.","url":"https://citedhealth.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cited Health","item":"https://citedhealth.com"},{"@type":"ListItem","position":2,"name":"Widget Docs"}]},{"@type":"SoftwareSourceCode","name":"citedhealth-embed","codeRepository":"https://github.com/citedhealth/citedhealth-embed","programmingLanguage":"TypeScript","runtimePlatform":"Browser","license":"https://opensource.org/licenses/MIT"}]}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Cited Health Embed Widget",
+        "url": "https://widget.citedhealth.com",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "description": "Embed evidence-based health/supplement widgets on any website. Citation-tracked, peer-review verified. 9 specialty sites covering hair, sleep, gut, immune, brain, weight, heart, skin health.",
+        "publisher": {"@type": "Organization", "name": "Cited Health Inc.", "url": "https://citedhealth.com"},
+        "isPartOf": {"@type": "WebSite", "name": "Cited Health", "url": "https://citedhealth.com"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Cited Health", "item": "https://citedhealth.com"},
+          {"@type": "ListItem", "position": 2, "name": "Widget Docs"}
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "CITED Health Specialty Sites",
+        "numberOfItems": 9,
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Cited Health (Hub)", "url": "https://citedhealth.com"},
+          {"@type": "ListItem", "position": 2, "name": "HairCited", "url": "https://haircited.com"},
+          {"@type": "ListItem", "position": 3, "name": "SleepCited", "url": "https://sleepcited.com"},
+          {"@type": "ListItem", "position": 4, "name": "GutCited", "url": "https://gutcited.com"},
+          {"@type": "ListItem", "position": 5, "name": "ImmuneCited", "url": "https://immunecited.com"},
+          {"@type": "ListItem", "position": 6, "name": "BrainCited", "url": "https://braincited.com"},
+          {"@type": "ListItem", "position": 7, "name": "WeightCited", "url": "https://weightcited.com"},
+          {"@type": "ListItem", "position": 8, "name": "HeartCited", "url": "https://heartcited.com"},
+          {"@type": "ListItem", "position": 9, "name": "SkinCited", "url": "https://skincited.com"}
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "citedhealth-embed",
+        "codeRepository": "https://github.com/citedhealth/citedhealth-embed",
+        "programmingLanguage": "TypeScript",
+        "runtimePlatform": "Browser",
+        "license": "https://opensource.org/licenses/MIT"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is Cited Health and how are sources cited?", "acceptedAnswer": {"@type": "Answer", "text": "Cited Health is an evidence-based supplement and health information platform. Every health claim in the widget is backed by citations to peer-reviewed scientific literature (PubMed-indexed studies, meta-analyses, systematic reviews). Each evidence card includes the citation count, study designs (RCT, cohort, case-control), and direct links to PubMed. No 'wellness' or 'natural' claims without sourcing."}},
+          {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. All Cited Health content is for informational and educational purposes only. The widgets show what research says about ingredients and conditions, but are not a substitute for professional medical advice. Always consult a licensed healthcare provider before starting any supplement, especially if you take medications, are pregnant or nursing, or have a chronic condition. Cited Health is not a doctor and does not diagnose or treat."}},
+          {"@type": "Question", "name": "Which health topics do the 9 CITED sites cover?", "acceptedAnswer": {"@type": "Answer", "text": "HairCited (hair growth, loss, supplements), SleepCited (insomnia, melatonin, sleep hygiene), GutCited (microbiome, probiotics, IBS), ImmuneCited (vitamin C/D, zinc, immune support), BrainCited (nootropics, cognitive supplements, focus), WeightCited (metabolism, weight loss supplements, appetite), HeartCited (cardiovascular health, cholesterol, blood pressure supplements), SkinCited (collagen, retinol, skin barrier). Cited Health is the umbrella hub."}},
+          {"@type": "Question", "name": "How does the evidence grading work?", "acceptedAnswer": {"@type": "Answer", "text": "Each ingredient-condition pair has an evidence grade: STRONG (multiple RCTs or meta-analyses with consistent positive findings), MODERATE (some RCTs with mixed results, or strong observational evidence), WEAK (limited or low-quality studies, mechanistic evidence only), INSUFFICIENT (no human studies of sufficient quality). The widget displays the grade prominently so users see at a glance whether evidence is solid or preliminary."}},
+          {"@type": "Question", "name": "Can the widget show drug interactions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the interaction widget (data-citedhealth=\"interactions\") shows known supplement-drug interactions documented in DrugBank, NCCIH, and peer-reviewed literature. Severity classified as MAJOR (contraindicated), MODERATE (use with monitoring), MINOR (clinically insignificant). Always disclose all supplements to your prescribing physician — interactions can be life-threatening (e.g., St. John's Wort with SSRIs)."}},
+          {"@type": "Question", "name": "How current is the citation database?", "acceptedAnswer": {"@type": "Answer", "text": "Citations are refreshed monthly via the PubMed/NLM API. New systematic reviews and high-quality RCTs are added within 30 days of indexing. Old citations are preserved (study removal is rare; even retracted studies are flagged with a RETRACTED badge rather than deleted). Each evidence card shows 'Last reviewed: <date>' so consumers know how current the analysis is."}}
+        ]
+      }
+    ]
+  }
+  </script>
   </script>
 
   <!-- Geist Mono for code blocks -->
@@ -995,6 +1052,32 @@
         </table>
       </div>
       <script>(function(){var s='Cited Health';document.querySelectorAll('#network-table tr').forEach(function(r){var c=r.querySelector('td:first-child');if(c&&c.textContent.trim()===s){r.style.background='color-mix(in srgb, #2563EB 6%, white)';r.style.fontWeight='600';}});})();</script>
+    </div>
+  </section>
+
+  <!-- FAQ — evidence + safety -->
+  <section id="faq" class="py-16 sm:py-20 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white">FAQ — Evidence &amp; Safety</h2>
+      <p class="mt-3 text-center text-gray-600 dark:text-gray-400">Common questions about evidence sourcing, medical disclaimers, and the 9 CITED specialty sites.</p>
+      <div class="mt-10 space-y-4">
+        <details class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><summary class="font-semibold cursor-pointer text-gray-900 dark:text-white">What is Cited Health and how are sources cited?</summary><p class="mt-3 text-gray-600 dark:text-gray-400 text-sm"><a href="https://citedhealth.com" class="text-blue-600 hover:underline">Cited Health</a> is an evidence-based supplement and health information platform. Every health claim is backed by citations to <strong>peer-reviewed scientific literature</strong> (PubMed-indexed studies, meta-analyses, systematic reviews). Each evidence card includes citation count, study designs (RCT, cohort, case-control), and direct links to PubMed. No 'wellness' or 'natural' claims without sourcing.</p></details>
+        <details class="p-5 rounded-lg border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30"><summary class="font-semibold cursor-pointer text-amber-900 dark:text-amber-200">⚠️ Is this medical advice?</summary><p class="mt-3 text-amber-800 dark:text-amber-200/80 text-sm"><strong>No.</strong> All Cited Health content is for informational and educational purposes only. Widgets show what research says about ingredients and conditions, but are <strong>not a substitute for professional medical advice</strong>. Always consult a licensed healthcare provider before starting any supplement — especially if you take medications, are pregnant or nursing, or have a chronic condition. Cited Health does not diagnose or treat.</p></details>
+        <details class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><summary class="font-semibold cursor-pointer text-gray-900 dark:text-white">Which health topics do the 9 CITED sites cover?</summary><p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
+          <a href="https://haircited.com" class="text-blue-600 hover:underline">HairCited</a> (hair growth, loss, supplements),
+          <a href="https://sleepcited.com" class="text-blue-600 hover:underline">SleepCited</a> (insomnia, melatonin, sleep hygiene),
+          <a href="https://gutcited.com" class="text-blue-600 hover:underline">GutCited</a> (microbiome, probiotics, IBS),
+          <a href="https://immunecited.com" class="text-blue-600 hover:underline">ImmuneCited</a> (vitamin C/D, zinc, immune support),
+          <a href="https://braincited.com" class="text-blue-600 hover:underline">BrainCited</a> (nootropics, cognitive supplements),
+          <a href="https://weightcited.com" class="text-blue-600 hover:underline">WeightCited</a> (metabolism, weight loss),
+          <a href="https://heartcited.com" class="text-blue-600 hover:underline">HeartCited</a> (cardiovascular, cholesterol),
+          <a href="https://skincited.com" class="text-blue-600 hover:underline">SkinCited</a> (collagen, retinol, skin barrier).
+          <a href="https://citedhealth.com" class="text-blue-600 hover:underline">Cited Health</a> is the umbrella hub.
+        </p></details>
+        <details class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><summary class="font-semibold cursor-pointer text-gray-900 dark:text-white">How does the evidence grading work?</summary><p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">Each ingredient-condition pair has a grade: <strong>STRONG</strong> (multiple RCTs or meta-analyses with consistent positive findings), <strong>MODERATE</strong> (some RCTs with mixed results, or strong observational evidence), <strong>WEAK</strong> (limited or low-quality studies, mechanistic only), <strong>INSUFFICIENT</strong> (no quality human studies). The widget displays the grade prominently. Browse all <a href="https://citedhealth.com/ingredients/" class="text-blue-600 hover:underline">ingredients</a> and <a href="https://citedhealth.com/conditions/" class="text-blue-600 hover:underline">conditions</a>.</p></details>
+        <details class="p-5 rounded-lg border border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-950/30"><summary class="font-semibold cursor-pointer text-red-900 dark:text-red-200">⚠️ Can the widget show drug interactions?</summary><p class="mt-3 text-red-800 dark:text-red-200/80 text-sm">Yes — the interaction widget (<code class="bg-red-100 dark:bg-red-900/50 px-1 rounded">data-citedhealth="interactions"</code>) shows known supplement-drug interactions documented in DrugBank, NCCIH, and peer-reviewed literature. Severity: <strong>MAJOR</strong> (contraindicated), <strong>MODERATE</strong> (use with monitoring), <strong>MINOR</strong> (clinically insignificant). <strong>Always disclose all supplements to your prescribing physician</strong> — interactions can be life-threatening (e.g., St. John's Wort with SSRIs).</p></details>
+        <details class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><summary class="font-semibold cursor-pointer text-gray-900 dark:text-white">How current is the citation database?</summary><p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">Citations refresh monthly via the PubMed/NLM API. New systematic reviews and high-quality RCTs added within 30 days of indexing. Old citations preserved (retracted studies flagged with RETRACTED badge rather than deleted). Each evidence card shows 'Last reviewed: &lt;date&gt;'. Full REST API at <a href="https://citedhealth.com/developers/" class="text-blue-600 hover:underline">citedhealth.com/developers/</a>.</p></details>
+      </div>
     </div>
   </section>
 

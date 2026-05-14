@@ -5,3 +5,4 @@ Allow: /
 # Main site: https://citedhealth.com
 # Widget docs: https://widget.citedhealth.com
 # npm: https://www.npmjs.com/package/citedhealth-embed
+Sitemap: https://widget.citedhealth.com/sitemap.xml
