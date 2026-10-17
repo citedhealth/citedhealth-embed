@@ -767,7 +767,7 @@ function renderError(container, message, config) {
   container.innerHTML = `
     <div class="cited-error">
       <p>${message}</p>
-      <a href="https://${config.domain}" target="_blank" rel="noopener">
+      <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">
         Visit ${config.name}
       </a>
     </div>
@@ -775,7 +775,7 @@ function renderError(container, message, config) {
 }
 var externalLinkIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 function poweredByHTML(config) {
-  return `<span class="cited-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="noopener">${config.name}</a></span>`;
+  return `<span class="cited-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">${config.name}</a></span>`;
 }
 function disclaimerHTML() {
   return `<span class="cited-disclaimer">For informational purposes only. Not medical advice. Consult a healthcare professional.</span>`;
@@ -1019,7 +1019,7 @@ function renderEvidence(container, item, config) {
     </div>
 
     <div class="cited-actions">
-      <a class="cited-link" href="${evidenceUrl}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${evidenceUrl}" target="_blank" rel="nofollow noopener">
         View full evidence ${externalLinkIcon}
       </a>
     </div>
@@ -1092,7 +1092,7 @@ function renderIngredient(container, item, config) {
     ${dosageHTML}
 
     <div class="cited-actions">
-      <a class="cited-link" href="${ingredientUrl}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${ingredientUrl}" target="_blank" rel="nofollow noopener">
         Learn more on ${escapeHTML2(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1156,7 +1156,7 @@ function renderCondition(container, item, config) {
     ${ingredientsHTML}
 
     <div class="cited-actions">
-      <a class="cited-link" href="${conditionUrl}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${conditionUrl}" target="_blank" rel="nofollow noopener">
         Explore supplements for ${escapeHTML3(item.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1232,7 +1232,7 @@ function initPaperWidget(el, config) {
 function renderPaper(container, paper, config) {
   const paperUrl = `https://${config.domain}/papers/${paper.pmid}/`;
   const authorsText = formatAuthors(paper.authors);
-  const doiLink = paper.doi ? `<a class="cited-link cited-link--small" href="https://doi.org/${escapeHTML4(paper.doi)}" target="_blank" rel="noopener">doi:${escapeHTML4(paper.doi)} ${externalLinkIcon}</a>` : "";
+  const doiLink = paper.doi ? `<a class="cited-link cited-link--small" href="https://doi.org/${escapeHTML4(paper.doi)}" target="_blank" rel="nofollow noopener">doi:${escapeHTML4(paper.doi)} ${externalLinkIcon}</a>` : "";
   container.innerHTML = `
     <div class="cited-accent-bar"></div>
 
@@ -1254,7 +1254,7 @@ function renderPaper(container, paper, config) {
     </div>
 
     <div class="cited-actions">
-      <a class="cited-link" href="${escapeHTML4(paperUrl)}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${escapeHTML4(paperUrl)}" target="_blank" rel="nofollow noopener">
         Read analysis on ${escapeHTML4(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1350,7 +1350,7 @@ function renderFigure(container, figure, config) {
     </div>
 
     <div class="cited-actions">
-      <a class="cited-link" href="${escapeHTML5(paperUrl)}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${escapeHTML5(paperUrl)}" target="_blank" rel="nofollow noopener">
         View paper on ${escapeHTML5(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1461,7 +1461,7 @@ function initSearchWidget(el, config) {
             class="cited-search-result"
             href="${href}"
             target="_blank"
-            rel="noopener"
+            rel="nofollow noopener"
             role="option"
             tabindex="-1"
           >
@@ -1622,7 +1622,7 @@ function renderSafety(container, item, config) {
     ${interactionsHTML}
 
     <div class="cited-actions">
-      <a class="cited-link" href="${safetyUrl}" target="_blank" rel="noopener">
+      <a class="cited-link" href="${safetyUrl}" target="_blank" rel="nofollow noopener">
         Full safety profile on ${escapeHTML7(config.name)} ${externalLinkIcon}
       </a>
     </div>
